@@ -3,3 +3,5 @@
 ################################################################################
 
 /ReportingApp/.vs
+/ReportingApp/packages
+/ReportingApp/ReportingApp/bin

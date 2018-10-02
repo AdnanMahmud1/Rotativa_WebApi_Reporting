@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Rheader";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+<!DOCTYPE html>
+<html><head><script>
+                function subst() {
+                    var vars={};
+                    var x=document.location.search.substring(1).split('&');
+                    for(var i in x) {var z=x[i].split('=',2);vars[z[0]] = unescape(z[1]);}
+                    var x=['frompage','topage','page','webpage','section','subsection','subsubsection'];
+                    for(var i in x) {
+                        var y = document.getElementsByClassName(x[i]);
+                        for(var j=0; j<y.length; ++j) y[j].textContent = vars[x[i]];
+                    }
+                }
+            </script>
+</head><body style="border: 0; margin: 0;" onload="subst()">
+<div>
+   <div class="row">
+        <div class="col-md-8">
+            <table class="table borderless">
+                <tr>
+                    <td>
+                        <div align="right" style="padding-top: 20px">
+                            <img src="~/Content/Images/logo.png" style="height: 75px; width: 75px;" />
+                        </div>
+                    </td>
+                    <td>
+                        <h3>The Name of</h3>
+                        <p style="font-size: 17px; text-align: left; color: #780e50">
+                            Your Company
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+       <div class="col-md-4">
+           <div style="border-bottom: #780e50 3px solid">
+               <div align="right"><i style="font-size: 15px" class="fa fa-clock-o"></i>&nbsp;Printed on: @DateTime.Now &nbsp;<i class="fa fa-list-ul" aria-hidden="true"></i>&nbsp; Page <span class="page"></span>of <span class="topage"></span> </div>
+           </div>
+       </div>
+    </div>
+</div>
+
+</body>
+</html>
